@@ -3,4 +3,9 @@ main:
   path: ~
   controller: App\Controller\MovieController
   action: index
+show:
+    method: 'get'
+    path: 'show/{id}'
+    controller: App\Controller\MovieController
+    action: show
 

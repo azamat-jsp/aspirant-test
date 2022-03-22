@@ -1,0 +1,21 @@
+{% extends 'main.html.twig' %}
+{% block title %} sdsdview page{% endblock %}
+{% block content %}
+    <div class="container">
+        <a href="/" class="btn btn-primary mt-4" style="float: right">Back</a>
+
+        <h3 class="mt-5 mb-4">{{ trailer.title }}</h3>
+        <div class="movie">
+            <div class="card" style="width:500px">
+                <img class="card-img-top" src="{{  trailer.image }}" alt="Card image">
+                <div class="card-body">
+                    <h4 class="card-title">John Doe</h4>
+                    <p class="card-text">{{  trailer.description }}</p>
+                    <a href="{{ trailer.link }}" class="btn btn-primary">More information</a>
+                </div>
+            </div>
+        </div>
+        </div>
+
+    </div>
+{% endblock %}

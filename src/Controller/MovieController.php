@@ -37,6 +37,29 @@ class MovieController
         return $response;
     }
 
+    public function show(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
+    {
+        try {
+            $id = (int)$request->getAttribute('id') > 0 ? (int)$request->getAttribute('id') : 0;
+            $trailer = $this->em->getRepository(Movie::class)->find($id);
+            if ($trailer) {
+                $data = $this->twig->render('movie/show.html.twig', [
+                    'trailer' => $trailer
+                ]);
+            } else {
+                $data = $this->twig->render('404.html.twig');
+            }
+
+        } catch (\Exception $e) {
+
+            throw new HttpBadRequestException($request, $e->getMessage(), $e);
+        }
+
+        $response->getBody()->write($data);
+
+        return $response;
+    }
+
     protected function fetchData(): Collection
     {
         $data = $this->em->getRepository(Movie::class)->findAll();

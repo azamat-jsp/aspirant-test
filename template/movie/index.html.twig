@@ -4,13 +4,13 @@
     <div class="container">
         <h3 class="mt-5 mb-4">{{ 'current time and date-'|upper }} {{ dateTime }}</h3>
         <h1 class="mt-5 mb-4">{{ trailers | length }} iTunes Movie trailers</h1>
-        <div class="movies d-flex flex-wrap">
+        <div class="movies d-flex flex-wrap" style="max-width: 95%">
             {% for trailer in trailers %}
-                <div class="card" style="align-items: center">
-                    <img class="card-img-top" src="{{ trailer.image }}" height="300" alt="Card image cap">
-                    <div class="card-body">
+                <div class="card border-info mb-3" style="max-width: 18rem; margin-right: 22px">
+                    <img class="rounded mx-auto d-block" src="{{ trailer.image }}" height="300" alt="Card image cap">
+                    <div class="card-body text-center">
                         <h5 class="card-title">{{ trailer.title }}</h5>
-                        <a href="{{ trailer.link }}" target="_blank" class="btn btn-primary">More information</a>
+                        <a href="show/{{ trailer.id }}" class="btn btn-primary">More information</a>
                     </div>
                 </div>
             {% endfor %}

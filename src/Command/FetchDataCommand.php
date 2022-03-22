@@ -81,12 +81,12 @@ class FetchDataCommand extends Command
 
     protected function processXml(string $data): void
     {
-        $xml = (new \SimpleXMLElement($data))->children();
+        $count = 0;
+        $xml = new \SimpleXMLElement($data);
 
         if (!property_exists($xml, 'channel')) {
             throw new RuntimeException('Could not find \'channel\' element in feed');
         }
-        $count = 0;
 
         foreach ($xml->channel->item as $item) {
             $trailer = $this->getMovie((string) $item->title)
@@ -96,7 +96,7 @@ class FetchDataCommand extends Command
                 ->setImage((string) $item->link . '/images/poster.jpg')
                 ->setPubDate($this->parseDate((string) $item->pubDate));
 
-            if ($count > 10) {
+            if ($count >= 10) {
                 $this->doctrine->persist($trailer);
             }
 

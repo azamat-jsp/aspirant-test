@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e19764312ecc49354c5cb8a2898794fb",
+    "content-hash": "06f350a39282fa15fad02a7a7af6da87",
     "packages": [
         {
             "name": "clue/stream-filter",
@@ -5935,16 +5935,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "b32e60692821f0367e0db6dfd2142c09a23cc545"
+                "reference": "29f6ad2fea82186aeb129a05ec9a0e8ee9f3a62c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/b32e60692821f0367e0db6dfd2142c09a23cc545",
-                "reference": "b32e60692821f0367e0db6dfd2142c09a23cc545",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/29f6ad2fea82186aeb129a05ec9a0e8ee9f3a62c",
+                "reference": "29f6ad2fea82186aeb129a05ec9a0e8ee9f3a62c",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.1|^8.0"
+                "php": "^7.2|^8.0"
             },
             "conflict": {
                 "phpstan/phpstan-shim": "*"
@@ -5987,7 +5987,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-03-21T09:56:29+00:00"
+            "time": "2022-03-22T09:46:35+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",
@@ -8342,7 +8342,8 @@
     "platform": {
         "php": "^7.4 || ^8.0",
         "ext-json": "*",
-        "ext-simplexml": "*"
+        "ext-simplexml": "*",
+        "ext-dom": "*"
     },
     "platform-dev": [],
     "plugin-api-version": "2.2.0"
