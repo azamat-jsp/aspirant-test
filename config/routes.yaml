@@ -8,4 +8,9 @@ show:
     path: 'show/{id}'
     controller: App\Controller\MovieController
     action: show
+updateLike:
+  method: 'get'
+  path: 'updateLike/{id}'
+  controller: App\Controller\MovieController
+  action: updateLike
 

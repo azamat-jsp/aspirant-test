@@ -66,4 +66,29 @@ class MovieController
 
         return new ArrayCollection($data);
     }
+
+    public function updateLike(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
+    {
+        try {
+            $id = (int)$request->getAttribute('id') > 0 ? (int)$request->getAttribute('id') : 0;
+            $trailer = $this->em->getRepository(Movie::class)->find($id);
+            if ($trailer) {
+                $trailer->setLiked(true);
+                $this->em->persist($trailer);
+                $this->em->flush();
+                $data = 'is liked';
+            } else {
+                $data = 'error';
+            }
+
+        } catch (\Exception $e) {
+
+            throw new HttpBadRequestException($request, $e->getMessage(), $e);
+        }
+
+        $response->getBody()->write($data);
+
+        return $response;
+    }
+
 }

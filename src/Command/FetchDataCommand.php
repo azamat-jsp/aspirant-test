@@ -94,8 +94,8 @@ class FetchDataCommand extends Command
                 ->setDescription((string) $item->description)
                 ->setLink((string) $item->link)
                 ->setImage((string) $item->link . '/images/poster.jpg')
-                ->setPubDate($this->parseDate((string) $item->pubDate));
-
+                ->setPubDate($this->parseDate((string) $item->pubDate))
+                ->setLiked(false);
             if ($count >= 10) {
                 $this->doctrine->persist($trailer);
             }

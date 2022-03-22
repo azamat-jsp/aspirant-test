@@ -43,6 +43,11 @@ final class Movie
      */
     private ?string $image;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private bool $is_like;
+
     public function getImage(): ?string
     {
         return $this->image;
@@ -104,6 +109,18 @@ final class Movie
     public function setPubDate(?\DateTime $pubDate): self
     {
         $this->pubDate = $pubDate;
+
+        return $this;
+    }
+
+    public function getLiked(): bool
+    {
+        return $this->is_like;
+    }
+
+    public function setLiked(bool $is_like): self
+    {
+        $this->is_like = $is_like;
 
         return $this;
     }
